@@ -29,3 +29,15 @@ Example content might look like:
 Since you can't use comments in JSON files, you can just use some prefixed
 keys, in case you want to switch between different values of an option, as
 shown with the `_other_remoteNode` example demonstrates it.
+
+## Common Issues 
+
+MacOs Issue while running nix-shell command: 
+```
+dyld: Library not loaded: /usr/lib/system/libsystem_network.dylib
+  Referenced from: /nix/store/q819d3vjz7vswpvkrfa9gck3ys8rmvcj-Libsystem-osx-10.11.6/lib/libSystem.B.dylib
+```
+Solution 
+```
+rm -rf /nix/store/{hash}-Libsystem-osx-10.11.6
+```
