@@ -42,9 +42,27 @@ Solution
 rm -rf /nix/store/{hash}-Libsystem-osx-10.11.6
 ```
 
+Another common issue is once you run nix-shell on mac, the pnpm recursive install fails with an error message like this: 
+
+``` ERROR  sha3@1.2.2 install: `node-gyp rebuild`
+Exit status 1
+at Error: sha3
+at <anonymous>  …node_modules/npm-lifecycle/index.js:304  var er = new Error('Exit status ' + code)
+at emitTwo      events.js:126
+at emit         events.js:214
+at <anonymous>  …e_modules/npm-lifecycle/lib/spawn.js:55  cooked.emit('close', code, signal)
+at emitTwo      events.js:126
+at emit         events.js:214
+at maybeClose   internal/child_process.js:925
+at on           internal/child_process.js:346
+at emitOne      events.js:116
+at emit         events.js:211 ```
+
+This can be solved by using docker set-up instead of the mac-os set-up. Feel free to create a PR if you figure out how to run on mac without errors. 
+
 ## Docker - Set-up 
 
-The previous set-up doesn't seem to work on mac's anymore due to updates with Mojave. Thus here are instructions to run a docker image with this project. 
+The previous set-up doesn't seem to work on mac's anymore due to updates with Mojave. The issue is explained in more detail above. Thus here are instructions to run a docker image with this project. 
 
 1. Clone the repo locally 
 2. Cd into the repo 
