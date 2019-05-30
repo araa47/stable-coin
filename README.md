@@ -41,3 +41,15 @@ Solution
 ```
 rm -rf /nix/store/{hash}-Libsystem-osx-10.11.6
 ```
+
+## Docker - Set-up 
+
+The previous set-up doesn't seem to work on mac's anymore due to updates with Mojave. Thus here are instructions to run a docker image with this project. 
+
+1. Clone the repo locally 
+2. Cd into the repo 
+3. Run ```docker build .``` This will create the docker container and after sdome time return the container id, note this down. 
+4. Now run ```docker run -it CONTAINER_ID sh ``` Where CONTAINER_ID is the container id returned by the docker build command. 
+5. Activate the nix-shell by running ```nix-shell``` 
+6. Now you can change directory into the chain folder of the project inside the docker container ```cd chain``` 
+7. Run tests ```pnpm test --watch``` 
